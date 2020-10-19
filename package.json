@@ -11,6 +11,10 @@
     "name": "Danny Palma",
     "email": "danielpalma2003@hotmail.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hola-sebas/electron-hbs"
+  },
   "license": "ISC",
   "dependencies": {
     "handlebars": "^4.7.6",
