@@ -82,23 +82,16 @@ newHandlebars.render('welcome/index.hbs', {name: 'Jonson'}) // thats returns the
 
 ```js
 const { app, BrowserWindow, Menu } = require("electron");
-const url = require('url');
 const path = require('path');
-const fs = require("fs");
-const customHandlebars = require('./modules/renders');
+const handlebarsHbs = require('handlebars-hbs');
 
 // initialization Custom handlebars
-const newHandlebars = new customHandlebars(
+const newHandlebars = new handlebarsHbs(
     path.join(__dirname, 'views'),
     path.join(__dirname, 'views', 'layouts'),
     'main.hbs',
     path.join(__dirname, 'views', 'temp')
 );
-
-// Electron Reload
-if (process.env.NODE_ENV !== 'production') {
-    require('electron-reload')(__dirname, {});
-};
 
 // Declaratios of windows
 let mainMindow;
@@ -112,8 +105,6 @@ app.on("ready", () => {
         }
     })
     mainMindow.loadURL(newHandlebars.render('welcome/index.hbs'));
-    const mainMenu = Menu.buildFromTemplate(templateMenu);
-    Menu.setApplicationMenu(mainMenu);
     mainMindow.on("closed", () => {
         app.quit()
     });
@@ -134,46 +125,13 @@ function createNewProductWindow() {
             nodeIntegration: true
         }
     });
-    newProductWindow.setMenu(null)
     newProductWindow.loadURL(newHandlebars.render('products/new.hbs'));
     newProductWindow.on("closed", () => {
         newProductWindow = null;
     });
 };
 
-// Menu Template
-const templateMenu = [
-    {
-        label: 'File',
-        submenu: [
-            {
-                label: 'New Product',
-                accelerator: 'Ctrl+N',
-                click() {
-                    createNewProductWindow()
-                }
-            },
-            {
-                label: 'Remove All Products',
-                click() {
-
-                }
-            },
-            {
-                label: 'Exit',
-                accelerator: process.platform == 'darwin' ? 'command+Q' : 'Ctrl+Q',
-                click() {
-                    app.quit();
-                }
-            },
-            {
-                label: 'Show/Hide DevTools',
-                click(item, focusedWindow) {
-                    focusedWindow.toggleDevTools();
-                },
-                accelerator: 'Ctrl+Shift+I'
-            }
-        ]
-    },
-];
 ```
+## Why this module
+
+this module enable the usage handlebars much simpler saving many headaches using functions and methods even more and understandable
