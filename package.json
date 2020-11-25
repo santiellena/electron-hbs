@@ -11,9 +11,12 @@
     "name": "Danny Palma",
     "email": "danielpalma2003@hotmail.com"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hola-sebas/electron-hbs"
+    "url": "git+https://github.com/hola-sebas/electron-hbs.git"
   },
   "license": "ISC",
   "dependencies": {
