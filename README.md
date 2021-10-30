@@ -10,7 +10,11 @@ const newHandlebars = new customHandlebars(
     path.join(__dirname, 'views'), // the path to views folder
     path.join(__dirname, 'views', 'layouts'), // the path to layouts
     'main.hbs',// the main file i'ts similar to the following example
-    path.join(__dirname, 'views', 'temp') // the temp folder i'ts very important because since that's where all the .html already rendered are saved
+    path.join(__dirname, 'views', 'temp') // the temp folder i'ts very important because since that's where all the .html already rendered are saved,
+    path.join(__dirname, 'views', 'partials'), //the path to partials folder
+    {
+      partialName: 'partialNameFile', // the name of the item is to call it in the .hbs file and the value is the name of the file
+    },
 );
 ```
 
@@ -90,7 +94,11 @@ const newHandlebars = new handlebarsHbs(
     path.join(__dirname, 'views'),
     path.join(__dirname, 'views', 'layouts'),
     'main.hbs',
-    path.join(__dirname, 'views', 'temp')
+    path.join(__dirname, 'views', 'temp'),
+    path.join(__dirname, 'views', 'partials'),
+    {
+        partialName: 'partialNameFile',
+    }
 );
 
 // Declaratios of windows
